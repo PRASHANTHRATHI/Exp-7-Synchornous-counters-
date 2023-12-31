@@ -131,4 +131,4 @@ endmodule
 ![image](https://github.com/PRASHANTHRATHI/Exp-7-Synchornous-counters-/assets/145743120/749750ed-c5f4-429c-a3fd-2a9ff02cc8fd)
 
 ### RESULTS 
-By this we have verified the truth table of 4-bit up-counter using verilog.
+By this we have verified the truth table of 4-bit up-counter and down-counter using verilog.
