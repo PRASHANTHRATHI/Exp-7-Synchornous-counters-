@@ -1,7 +1,14 @@
+## NAME:PRASHANTH.K
+## REGISTER NUMBER:212223230152
+
+
 # Exp-6-Synchornous-counters - up counter and down counter 
-### AIM: To implement 4 bit up and down counters and validate  functionality.
-### HARDWARE REQUIRED:  – PC, Cyclone II , USB flasher
-### SOFTWARE REQUIRED:   Quartus prime
+### AIM: 
+To implement 4 bit up and down counters and validate  functionality.
+### HARDWARE REQUIRED:  
+PC, Cyclone II , USB flasher
+### SOFTWARE REQUIRED:   
+Quartus prime
 ### THEORY 
 
 ## UP COUNTER 
@@ -46,43 +53,75 @@ This type of counter is normally referred to as a Down Counter, (CTD). In a bina
 
 4-bit Count Down Counter
 ### Procedure
-/* write all the steps invloved */
+1.Create a new project in Quartus2 software .
+2.Name the project as uc for upcounter and dc for down counter.
+3.Create a new verilog hdl file in the project file.
+4.Name the module declare as dc and uc for down counter and upcounter.
+5.Within the module declare input and output variables.
+6.Create a loop using if-else with condition parameter as reset.
+7.End the loop.
+8.End the module
 
 
 
 ### PROGRAM 
-/*
-Program for flipflops  and verify its truth table in quartus using Verilog programming.
-Developed by: 
-RegisterNumber:  
-*/
+## UP COUNTER
+```
+module sc(clk,A);
+input clk;
+output reg[0:3]A;
+always@(posedge clk)
+begin
+A[0]=((((A[1])&(A[2]))&A[3])^A[0]);
+A[1]=(((A[2])&(A[3]))^A[1]);
+A[2]=((A[3])^A[2]);
+A[3]=1^A[3];
+end
+endmodule
+```
+## DOWN COUNTER
+```
+module downcounter(
+  input wire clk,  
+  input wire rst,   
+  output reg [3:0] count   
+);
 
+  always @(posedge clk or posedge rst) begin
+    if (rst) begin
+      
+      count <= 4'b1111;
+    end else begin
+      
+      count <= count - 1;
+    end
+  end
 
+endmodule
+```
+## OUTPUT
+## STATE TABLE
+## UP COUNTER
+![image](https://github.com/PRASHANTHRATHI/Exp-7-Synchornous-counters-/assets/145743120/380b1d00-f96b-4250-945e-f5f8555b9068)
 
+## DOWN COUNTER
+![image](https://github.com/PRASHANTHRATHI/Exp-7-Synchornous-counters-/assets/145743120/768819bc-f2e6-45aa-81e2-55604bfd341b)
 
 
 
 ### RTL LOGIC UP COUNTER AND DOWN COUNTER  
+## UP COUNTER
+![image](https://github.com/PRASHANTHRATHI/Exp-7-Synchornous-counters-/assets/145743120/68f74de5-504b-47c2-a24d-341a824c317e)
 
-
-
-
-
-
-
+## DOWN COUNTER
+![image](https://github.com/PRASHANTHRATHI/Exp-7-Synchornous-counters-/assets/145743120/811d50a1-8f1e-4c8a-8ccf-083cc1d2d417)
 
 
 ### TIMING DIGRAMS FOR COUNTER  
-
-
-
-
-
-### TRUTH TABLE 
-
-
-
-
-
+## UP COUNTER
+![image](https://github.com/PRASHANTHRATHI/Exp-7-Synchornous-counters-/assets/145743120/b3b0dc39-c3a4-4e0c-8766-d7223c4ee3bc)
+## DOWN COUNTER
+![image](https://github.com/PRASHANTHRATHI/Exp-7-Synchornous-counters-/assets/145743120/749750ed-c5f4-429c-a3fd-2a9ff02cc8fd)
 
 ### RESULTS 
+By this we have verified the truth table of 4-bit up-counter using verilog.
